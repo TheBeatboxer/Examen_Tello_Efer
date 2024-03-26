@@ -51,8 +51,8 @@
     models.LibroAutor "*"--"1" models.Autor
     models.Libro "1"--"*" models.LibroAutor
     models.Categoria "1"--- "*" models.Libro
-    models.Reseña "1"--- "1" models.Libro
-    models.Usuario "1"--- "1" models.Reseña
+    models.Resenia "1"--- "1" models.Libro
+    models.Usuario "1"--- "1" models.Resenia
 
     models.LibroReserva "*"--- "1" models.Usuario
     models.Libro "1"--- "*" models.LibroReserva
