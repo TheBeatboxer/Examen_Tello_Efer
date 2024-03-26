@@ -1,0 +1,61 @@
+@startuml
+    class models.Usuario{
+        usuarioID:int
+        nombre: string
+        edad:int
+        email:string
+    }
+
+    class models.Libro{
+        libroID:int
+        categoriaID:int
+        titulo:string
+        precio:float
+        fechaPublicacion:date        
+    }
+
+
+    class models.Resenia{
+        reseñaID:int
+        libroID:int
+        usuarioID:int
+        description:text
+        fecha:date
+    }
+
+    class models.Autor{
+        autorID:int
+        nombre:string
+        edad:int
+        biografia:text
+    }
+
+    class models.LibroAutor{
+        libroAutorID:int
+        libroID:int
+        autorID:int
+    }
+
+    class models.Categoria{
+        categoriaID:int
+        tipo:string
+    }
+
+    class models.LibroReserva{
+        LibroReservaID:int
+        usuarioID:int
+        libroID:int
+    }
+
+
+    models.LibroAutor "*"--"1" models.Autor
+    models.Libro "1"--"*" models.LibroAutor
+    models.Categoria "1"--- "*" models.Libro
+    models.Reseña "1"--- "1" models.Libro
+    models.Usuario "1"--- "1" models.Reseña
+
+    models.LibroReserva "*"--- "1" models.Usuario
+    models.Libro "1"--- "*" models.LibroReserva
+    
+    
+@enduml
